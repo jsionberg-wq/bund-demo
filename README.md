@@ -1,3 +1,1 @@
-# BUND Demo
-AI Shopping for DEPO
-Updated: 1775712547923
+# BUND Demo - Gemini 2.5 Flash - 1775715128056
