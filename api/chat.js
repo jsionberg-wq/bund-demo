@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
 
   const geminiBody = JSON.stringify({
     contents: [{ parts: [{ text: body.system + "\n\n" + userContent }] }],
-    generationConfig: { temperature: 0.3, maxOutputTokens: 500 }
+    generationConfig: { temperature: 0.3, maxOutputTokens: 800 }
   });
 
   const apiKey = process.env.GEMINI_API_KEY || "AIzaSyDlczTRN2xP-Ji2yuDTmVWV8JMpNUJB330";
@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
             res.status(apiRes.statusCode).json({ error: parsed?.error?.message || "API error" });
           } else {
             const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text || "";
-            res.status(200).json({ text });
+            const clean = text.replace(/```json\n?/g,"").replace(/```/g,"").trim(); res.status(200).json({ text: clean });
           }
         } catch {
           res.status(500).json({ error: "Parse error" });
