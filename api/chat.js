@@ -6,37 +6,29 @@ module.exports = async (req, res) => {
   const body = req.body;
   const mode = body?.mode || "catalog-select";
 
-  let messages;
+  let userContent = "";
   if (mode === "catalog-select") {
-    messages = [{
-      role: "user",
-      content: `User request: "${body.userMessage}". Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 items only from candidate ids.`
-    }];
+    userContent = `User request: "${body.userMessage}". Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 items only from candidate ids.`;
   } else if (mode === "catalog-select-more") {
-    messages = [{
-      role: "user",
-      content: `User request: "${body.userMessage}". Already shown: ${(body.existingNames || []).join(", ")}. Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 DIFFERENT items only from candidate ids.`
-    }];
+    userContent = `User request: "${body.userMessage}". Already shown: ${(body.existingNames || []).join(", ")}. Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 DIFFERENT items only from candidate ids.`;
   } else {
-    messages = body.messages || [{ role: "user", content: body.userMessage || "" }];
+    const msgs = body.messages || [{ role: "user", content: body.userMessage || "" }];
+    userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
-  const payload = JSON.stringify({
-    model: "claude-3-5-haiku-20241022",
-    max_tokens: 500,
-    system: body.system,
-    messages,
+  const geminiBody = JSON.stringify({
+    contents: [{ parts: [{ text: body.system + "\n\n" + userContent }] }],
+    generationConfig: { temperature: 0.3, maxOutputTokens: 500 }
   });
 
+  const apiKey = process.env.GEMINI_API_KEY;
+  const path = `/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
   const options = {
-    hostname: "api.anthropic.com",
-    path: "/v1/messages",
+    hostname: "generativelanguage.googleapis.com",
+    path: path,
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": process.env.ANTHROPIC_API_KEY,
-      "anthropic-version": "2023-06-01",
-    },
+    headers: { "Content-Type": "application/json" },
   };
 
   return new Promise((resolve) => {
@@ -49,7 +41,8 @@ module.exports = async (req, res) => {
           if (apiRes.statusCode !== 200) {
             res.status(apiRes.statusCode).json({ error: parsed?.error?.message || "API error" });
           } else {
-            res.status(200).json({ text: parsed.content?.[0]?.text || "" });
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            res.status(200).json({ text });
           }
         } catch {
           res.status(500).json({ error: "Parse error" });
@@ -58,7 +51,7 @@ module.exports = async (req, res) => {
       });
     });
     apiReq.on("error", (e) => { res.status(500).json({ error: e.message }); resolve(); });
-    apiReq.write(payload);
+    apiReq.write(geminiBody);
     apiReq.end();
   });
 };
