@@ -16,19 +16,28 @@ module.exports = async (req, res) => {
     userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
-  const geminiBody = JSON.stringify({
-    contents: [{ parts: [{ text: body.system + "\n\n" + userContent }] }],
-    generationConfig: { temperature: 0.3, maxOutputTokens: 800 }
+  const apiKey = process.env.OPENROUTER_API_KEY || "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";
+  const payload = JSON.stringify({
+    model: "deepseek/deepseek-chat-v3-0324:free",
+    messages: [
+      { role: "system", content: body.system || "" },
+      { role: "user", content: userContent }
+    ],
+    max_tokens: 600,
+    temperature: 0.3,
+    response_format: { type: "json_object" }
   });
 
-  const apiKey = process.env.GEMINI_API_KEY || "AIzaSyDlczTRN2xP-Ji2yuDTmVWV8JMpNUJB330";
-  const path = `/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-
   const options = {
-    hostname: "generativelanguage.googleapis.com",
-    path: path,
+    hostname: "openrouter.ai",
+    path: "/api/v1/chat/completions",
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`,
+      "HTTP-Referer": "https://bund-demo.vercel.app",
+      "X-Title": "BUND Demo"
+    }
   };
 
   return new Promise((resolve) => {
@@ -41,8 +50,8 @@ module.exports = async (req, res) => {
           if (apiRes.statusCode !== 200) {
             res.status(apiRes.statusCode).json({ error: parsed?.error?.message || "API error" });
           } else {
-            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text || "";
-            const clean = text.replace(/```json\n?/g,"").replace(/```/g,"").trim(); res.status(200).json({ text: clean });
+            const text = parsed.choices?.[0]?.message?.content || "";
+            res.status(200).json({ text });
           }
         } catch {
           res.status(500).json({ error: "Parse error" });
@@ -51,7 +60,7 @@ module.exports = async (req, res) => {
       });
     });
     apiReq.on("error", (e) => { res.status(500).json({ error: e.message }); resolve(); });
-    apiReq.write(geminiBody);
+    apiReq.write(payload);
     apiReq.end();
   });
 };
