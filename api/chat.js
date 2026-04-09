@@ -21,8 +21,8 @@ module.exports = async (req, res) => {
     generationConfig: { temperature: 0.3, maxOutputTokens: 500 }
   });
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  const path = `/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`;
+  const apiKey = process.env.GEMINI_API_KEY || "AIzaSyDlczTRN2xP-Ji2yuDTmVWV8JMpNUJB330";
+  const path = `/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
   const options = {
     hostname: "generativelanguage.googleapis.com",
