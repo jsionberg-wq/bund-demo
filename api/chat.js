@@ -1,18 +1,21 @@
 const https = require("https");
 
-const SYSTEM_PROMPT = `You are BUND, an AI shopping assistant for DEPO hardware stores in the Baltics.
-You help customers find the right products for their home improvement projects.
-You understand Estonian, Russian, Latvian, Lithuanian and English - respond in the same language the user writes in.
-
-When given a catalog-select task:
-- Carefully analyze the user's project/request
-- Select the MOST RELEVANT items from the candidate pool
-- Always return STRICT JSON with no extra text: {"selected_ids":[numbers],"follow_up":"friendly question in user's language"}
-- The follow_up should ask a helpful follow-up question to refine recommendations
-- Select 4-6 items that best match the request
-- If user writes in Russian, follow_up must be in Russian
-- If user writes in Estonian, follow_up must be in Estonian
-- Never return empty selected_ids - always pick the best matches`;
+const SYSTEM = [
+  "You are BUND - an intelligent AI shopping assistant for DEPO hardware stores in the Baltics.",
+  "You speak 5 languages: Estonian (eesti), Latvian (latviesu), Lithuanian (lietuviu), Russian (russkiy), English.",
+  "CRITICAL RULE: Always respond in the SAME language the user writes in.",
+  "Your job: analyze the customer project, pick the most relevant products, ask a smart follow-up.",
+  "",
+  "For catalog-select tasks return ONLY this JSON (no extra text, no markdown):",
+  '{"selected_ids":[1,2,3],"follow_up":"Your question here"}',
+  "",
+  "Rules:",
+  "- Select 4-6 items that best fit the request",
+  "- Never return empty selected_ids - always pick best matches from candidates",
+  "- follow_up must be in the same language as the user request",
+  "- follow_up should help narrow down what they need (style, budget, size, etc)",
+  "- Be helpful and warm, like a knowledgeable store assistant"
+].join("\n");
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
@@ -22,31 +25,24 @@ module.exports = async (req, res) => {
   let userContent = "";
 
   if (mode === "catalog-select") {
-    userContent = `User request: "${body.userMessage}"
-Candidate products: ${JSON.stringify(body.candidatePool || [])}
-Return ONLY valid JSON: {"selected_ids":[numbers],"follow_up":"string"}`;
+    userContent = `Customer request: "${body.userMessage}"\nAvailable products: ${JSON.stringify(body.candidatePool || [])}\nReturn JSON only: {"selected_ids":[numbers],"follow_up":"string"}`;
   } else if (mode === "catalog-select-more") {
-    userContent = `User request: "${body.userMessage}"
-Already shown: ${(body.existingNames || []).join(", ")}
-Candidate products: ${JSON.stringify(body.candidatePool || [])}
-Return ONLY valid JSON with 4-6 DIFFERENT ids: {"selected_ids":[numbers],"follow_up":"string"}`;
+    userContent = `Customer request: "${body.userMessage}"\nAlready shown: ${(body.existingNames || []).join(", ")}\nAvailable products: ${JSON.stringify(body.candidatePool || [])}\nReturn JSON with 4-6 NEW different ids: {"selected_ids":[numbers],"follow_up":"string"}`;
   } else {
     const msgs = body.messages || [{ role: "user", content: body.userMessage || "" }];
     userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
-  const fullPrompt = SYSTEM_PROMPT + "\n\n" + userContent;
-
   const geminiBody = JSON.stringify({
-    contents: [{ parts: [{ text: fullPrompt }] }],
-    generationConfig: { temperature: 0.1, maxOutputTokens: 600 }
+    contents: [{ parts: [{ text: SYSTEM + "\n\n" + userContent }] }],
+    generationConfig: { temperature: 0.1, maxOutputTokens: 500, responseMimeType: "application/json" }
   });
 
-  const path = "/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
   const options = {
     hostname: "generativelanguage.googleapis.com",
-    path, method: "POST",
+    path: "/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey,
+    method: "POST",
     headers: { "Content-Type": "application/json" }
   };
 
