@@ -1,5 +1,19 @@
 const https = require("https");
 
+const SYSTEM_PROMPT = `You are BUND, an AI shopping assistant for DEPO hardware stores in the Baltics.
+You help customers find the right products for their home improvement projects.
+You understand Estonian, Russian, Latvian, Lithuanian and English - respond in the same language the user writes in.
+
+When given a catalog-select task:
+- Carefully analyze the user's project/request
+- Select the MOST RELEVANT items from the candidate pool
+- Always return STRICT JSON with no extra text: {"selected_ids":[numbers],"follow_up":"friendly question in user's language"}
+- The follow_up should ask a helpful follow-up question to refine recommendations
+- Select 4-6 items that best match the request
+- If user writes in Russian, follow_up must be in Russian
+- If user writes in Estonian, follow_up must be in Estonian
+- Never return empty selected_ids - always pick the best matches`;
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -8,27 +22,25 @@ module.exports = async (req, res) => {
   let userContent = "";
 
   if (mode === "catalog-select") {
-    userContent = "User request (may be in any language - Estonian, Russian, Latvian, Lithuanian, English): \"" + body.userMessage + "\". " +
-      "Candidate catalog items: " + JSON.stringify(body.candidatePool || []) + ". " +
-      "IMPORTANT: Translate the user request to English internally, then select the most relevant items. " +
-      "Return STRICT JSON only: {\"selected_ids\":[numbers],\"follow_up\":\"string\"}. " +
-      "Select 4 to 6 item ids. If the request is vague, select the most popular/relevant items.";
+    userContent = `User request: "${body.userMessage}"
+Candidate products: ${JSON.stringify(body.candidatePool || [])}
+Return ONLY valid JSON: {"selected_ids":[numbers],"follow_up":"string"}`;
   } else if (mode === "catalog-select-more") {
-    userContent = "User request: \"" + body.userMessage + "\". Already shown: " + (body.existingNames || []).join(", ") + ". " +
-      "Candidates: " + JSON.stringify(body.candidatePool || []) + ". " +
-      "Return STRICT JSON only: {\"selected_ids\":[numbers],\"follow_up\":\"string\"}. " +
-      "Choose 4 to 6 DIFFERENT item ids not already shown.";
+    userContent = `User request: "${body.userMessage}"
+Already shown: ${(body.existingNames || []).join(", ")}
+Candidate products: ${JSON.stringify(body.candidatePool || [])}
+Return ONLY valid JSON with 4-6 DIFFERENT ids: {"selected_ids":[numbers],"follow_up":"string"}`;
   } else {
     const msgs = body.messages || [{ role: "user", content: body.userMessage || "" }];
     userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
-  const apiKey = "AIzaSyCfVE29ThscdDmxB_2qz81PgRBr9QLjhKY";
-  const systemPrompt = body.system || "You are BUND, an AI shopping assistant for DEPO hardware stores in the Baltics. You understand Estonian, Russian, Latvian, Lithuanian and English. Always return valid JSON.";
-  
+  const apiKey = process.env.GEMINI_API_KEY;
+  const fullPrompt = SYSTEM_PROMPT + "\n\n" + userContent;
+
   const geminiBody = JSON.stringify({
-    contents: [{ parts: [{ text: systemPrompt + "\n\n" + userContent }] }],
-    generationConfig: { temperature: 0.2, maxOutputTokens: 800 }
+    contents: [{ parts: [{ text: fullPrompt }] }],
+    generationConfig: { temperature: 0.1, maxOutputTokens: 600 }
   });
 
   const path = "/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
