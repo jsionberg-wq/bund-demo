@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
     userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
-  const apiKey = "AIzaSyBGj_yEM14GBZmc2W_pwJcmTlC7xR7wRo4";
+  const apiKey = process.env.GEMINI_API_KEY;
   const geminiBody = JSON.stringify({
     contents: [{ parts: [{ text: SYSTEM + "\n\n" + userContent }] }],
     generationConfig: { temperature: 0.1, maxOutputTokens: 500, responseMimeType: "application/json" }
