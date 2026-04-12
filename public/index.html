@@ -50,8 +50,8 @@ const products = [
   {id:6,  cat:"bathroom",  name:"LED Mirror YOWAY 500x700 Black",        price:229,  kind:"product", tags:["LED mirror","black"],           note:"Completes black bathroom set",   url:"#"},
   {id:7,  cat:"bathroom",  name:"3-Hook Coat Rack TOLED Black",          price:29,   kind:"product", tags:["coat rack","wall hook"],        note:"Matches black accessories",      url:"#"},
   {id:8,  cat:"bathroom",  name:"Anti-Slip Bamboo Mat 70x50 Natural",    price:39,   kind:"product", tags:["bath mat","bamboo","eco"],      note:"Spa style bathroom",             url:"#"},
-  {id:9,  cat:"bathroom",  name:"ð¤ Black Bathroom Bundle",              price:496,  kind:"bundle",  tags:["black bathroom","complete"],    note:"Mixer + Faucet + Mirror + Rack", url:"#"},
-  {id:10, cat:"bathroom",  name:"ð¿ Spa Bathroom Bundle",                price:387,  kind:"bundle",  tags:["spa","natural","eco"],          note:"Cabinet + Sink + Bamboo mat",    url:"#"},
+  {id:9,  cat:"bathroom",  name:"\uD87D\uDDA4 Black Bathroom Bundle",              price:496,  kind:"bundle",  tags:["black bathroom","complete"],    note:"Mixer + Faucet + Mirror + Rack", url:"#"},
+  {id:10, cat:"bathroom",  name:"\uD87C\uDF3F Spa Bathroom Bundle",                price:387,  kind:"bundle",  tags:["spa","natural","eco"],          note:"Cabinet + Sink + Bamboo mat",    url:"#"},
   {id:11, cat:"kitchen",   name:"Granite Sink Atlanta 760mm Black",      price:289,  kind:"product", tags:["kitchen sink","granite"],       note:"Black kitchen essential",        url:"#"},
   {id:12, cat:"kitchen",   name:"Refrigerator MPM 285L Black",           price:499,  kind:"product", tags:["refrigerator","black"],         note:"Matches black kitchen set",      url:"#"},
   {id:13, cat:"kitchen",   name:"Dishwasher Bosch Integrated 42dB",      price:749,  kind:"product", tags:["dishwasher","Bosch","premium"], note:"Whisper quiet 42dB",             url:"#"},
@@ -59,7 +59,7 @@ const products = [
   {id:15, cat:"kitchen",   name:"Mini Oven MPM 28L Black",               price:69,   kind:"product", tags:["mini oven","black"],            note:"Compact oven",                   url:"#"},
   {id:16, cat:"kitchen",   name:"Air Hood Whirlpool 650m3/h Black",      price:379,  kind:"product", tags:["range hood","Whirlpool"],       note:"Powerful ventilation",           url:"#"},
   {id:17, cat:"kitchen",   name:"Breakfast Maker 2in1 Adler Beige",      price:34,   kind:"product", tags:["breakfast maker","beige"],      note:"Warm cozy kitchen style",        url:"#"},
-  {id:18, cat:"kitchen",   name:"ð¤ Black Kitchen Bundle",               price:1136, kind:"bundle",  tags:["black kitchen","complete"],     note:"Sink + Fridge + Hood + Oven",    url:"#"},
+  {id:18, cat:"kitchen",   name:"\uD87D\uDDA4 Black Kitchen Bundle",               price:1136, kind:"bundle",  tags:["black kitchen","complete"],     note:"Sink + Fridge + Hood + Oven",    url:"#"},
   {id:19, cat:"garden",    name:"Shovel JASPER 1020mm Wood Handle",      price:24,   kind:"product", tags:["shovel","garden"],              note:"Garden essential",               url:"#"},
   {id:20, cat:"garden",    name:"Bird Feeder Finch Plastia Green",        price:18,   kind:"product", tags:["bird feeder","eco","wildlife"], note:"Attract birds naturally",        url:"#"},
   {id:21, cat:"garden",    name:"Storage Box 750L Two-Part Grey",        price:199,  kind:"product", tags:["storage box","750L","outdoor"], note:"Large outdoor storage",          url:"#"},
@@ -67,120 +67,120 @@ const products = [
   {id:23, cat:"garden",    name:"Growing Peat Nutro Garden 150L",        price:22,   kind:"product", tags:["peat","soil","organic"],        note:"Bulk peat for plants",           url:"#"},
   {id:24, cat:"garden",    name:"Gardena Shears SuperCut Pro",           price:69,   kind:"product", tags:["shears","Gardena","pruning"],   note:"Pairs with Gardena gloves",      url:"#"},
   {id:25, cat:"garden",    name:"Gardena Gloves Thorn-Proof Size L",     price:24,   kind:"product", tags:["gloves","Gardena","safety"],    note:"Pairs with Gardena shears",      url:"#"},
-  {id:26, cat:"garden",    name:"Garden Hose 30m Anti-Kink Green",       price:34,   kind:"product", tags:["hose","30m","watering"],        note:"Anti-kink â never tangles",      url:"#"},
+  {id:26, cat:"garden",    name:"Garden Hose 30m Anti-Kink Green",       price:34,   kind:"product", tags:["hose","30m","watering"],        note:"Anti-kink \u2014 never tangles",      url:"#"},
   {id:27, cat:"garden",    name:"Pressure Washer 1500W 110 bar",         price:129,  kind:"product", tags:["pressure washer","cleaning"],   note:"Driveways, patios, cars",        url:"#"},
-  {id:28, cat:"garden",    name:"ð¿ Gardena Garden Bundle",              price:162,  kind:"bundle",  tags:["Gardena","garden tools"],       note:"Mower + Shears + Gloves",        url:"#"},
+  {id:28, cat:"garden",    name:"\uD87C\uDF3F Gardena Garden Bundle",              price:162,  kind:"bundle",  tags:["Gardena","garden tools"],       note:"Mower + Shears + Gloves",        url:"#"},
   {id:29, cat:"tools",     name:"Leaf Blower Stanley Fatmax V20 18V",    price:149,  kind:"product", tags:["leaf blower","Stanley","V20"],  note:"V20 cordless system",            url:"#"},
   {id:30, cat:"tools",     name:"Lawn Mower Gardena PowerMax 36V",       price:389,  kind:"product", tags:["lawn mower","Gardena","36V"],   note:"Premium cordless",               url:"#"},
   {id:31, cat:"tools",     name:"Cordless Drill Bosch GSR 18V",          price:149,  kind:"product", tags:["drill","Bosch","18V"],          note:"2 batteries included",           url:"#"},
   {id:32, cat:"tools",     name:"Drill Bit Set 100pcs HSS Titanium",     price:24,   kind:"product", tags:["drill bits","100pcs","HSS"],    note:"Metal, wood and masonry",        url:"#"},
   {id:33, cat:"tools",     name:"Circular Saw Makita 185mm 1200W",       price:199,  kind:"product", tags:["circular saw","Makita"],        note:"Precise cuts in wood",           url:"#"},
-  {id:34, cat:"tools",     name:"Spirit Level Magnetic 60cm",            price:18,   kind:"product", tags:["spirit level","magnetic"],      note:"Magnetic base â hands free",     url:"#"},
-  {id:35, cat:"tools",     name:"ð§ DIY Starter Bundle",                 price:199,  kind:"bundle",  tags:["tools bundle","DIY"],           note:"Drill + Bits + Level + Bag",     url:"#"},
+  {id:34, cat:"tools",     name:"Spirit Level Magnetic 60cm",            price:18,   kind:"product", tags:["spirit level","magnetic"],      note:"Magnetic base \u2014 hands free",     url:"#"},
+  {id:35, cat:"tools",     name:"\uD87D\uDD27 DIY Starter Bundle",                 price:199,  kind:"bundle",  tags:["tools bundle","DIY"],           note:"Drill + Bits + Level + Bag",     url:"#"},
   {id:36, cat:"furniture", name:"Table ROCKY 1600mm Golden Oak",         price:299,  kind:"product", tags:["dining table","oak","wooden"],  note:"Pairs with dark chairs",         url:"#"},
   {id:37, cat:"furniture", name:"Chair TOOL Dark Upholstered",           price:149,  kind:"product", tags:["dining chair","upholstered"],   note:"Pairs with ROCKY table",         url:"#"},
-  {id:38, cat:"furniture", name:"Bookshelf 5-Tier White 180cm",          price:89,   kind:"product", tags:["bookshelf","white","shelving"], note:"Flat pack â assembly 30 min",    url:"#"},
+  {id:38, cat:"furniture", name:"Bookshelf 5-Tier White 180cm",          price:89,   kind:"product", tags:["bookshelf","white","shelving"], note:"Flat pack \u2014 assembly 30 min",    url:"#"},
   {id:39, cat:"furniture", name:"TV Stand Black 140cm with Storage",     price:119,  kind:"product", tags:["TV stand","black","media"],     note:"Fits up to 65 inch TV",          url:"#"},
   {id:40, cat:"furniture", name:"Office Desk 120cm White/Oak Legs",      price:149,  kind:"product", tags:["office desk","white","WFH"],    note:"Home office essential",          url:"#"},
   {id:41, cat:"furniture", name:"Ergonomic Office Chair Mesh Black",     price:189,  kind:"product", tags:["office chair","ergonomic"],     note:"Lumbar support all day",         url:"#"},
   {id:42, cat:"furniture", name:"Wardrobe 3-Door Sliding Mirror 150cm",  price:349,  kind:"product", tags:["wardrobe","mirror","3 door"],   note:"Mirror makes room feel larger",  url:"#"},
-  {id:43, cat:"furniture", name:"ðª Dining Room Bundle",                 price:597,  kind:"bundle",  tags:["dining set","table","chairs"],  note:"Table + 2x chairs",              url:"#"},
-  {id:44, cat:"furniture", name:"ð¼ Home Office Bundle",                 price:299,  kind:"bundle",  tags:["home office","desk","chair"],   note:"Desk + Ergonomic chair",         url:"#"},
+  {id:43, cat:"furniture", name:"\uD87E\uDE91 Dining Room Bundle",                 price:597,  kind:"bundle",  tags:["dining set","table","chairs"],  note:"Table + 2x chairs",              url:"#"},
+  {id:44, cat:"furniture", name:"\uD87D\uDCBC Home Office Bundle",                 price:299,  kind:"bundle",  tags:["home office","desk","chair"],   note:"Desk + Ergonomic chair",         url:"#"},
   {id:45, cat:"lighting",  name:"LED Panel Light 60x60cm 40W",           price:49,   kind:"product", tags:["LED panel","ceiling","40W"],    note:"Energy efficient flat panel",    url:"#"},
   {id:46, cat:"lighting",  name:"Philips Hue Smart Bulb E27 9W",         price:29,   kind:"product", tags:["smart bulb","Hue","E27"],       note:"App-controlled RGB lighting",    url:"#"},
   {id:47, cat:"lighting",  name:"Smart Dimmer Switch WiFi White",        price:39,   kind:"product", tags:["dimmer","smart switch","WiFi"], note:"Pairs with Philips Hue",         url:"#"},
   {id:48, cat:"lighting",  name:"Outdoor Wall Lamp IP44 Black",          price:59,   kind:"product", tags:["outdoor lamp","IP44","black"],  note:"Weatherproof garden lighting",   url:"#"},
   {id:49, cat:"lighting",  name:"Under Cabinet LED Strip 2m Warm",       price:24,   kind:"product", tags:["LED strip","warm white"],       note:"Perfect kitchen accent",         url:"#"},
   {id:50, cat:"lighting",  name:"Floor Lamp Arc Design Black/Gold",      price:129,  kind:"product", tags:["floor lamp","arc","design"],    note:"Statement living room piece",    url:"#"},
-  {id:51, cat:"lighting",  name:"Solar Garden Stake Light 4-pack",       price:22,   kind:"product", tags:["solar light","garden","stake"], note:"No wiring â solar powered",      url:"#"},
-  {id:52, cat:"lighting",  name:"ð¡ Smart Home Lighting Bundle",         price:149,  kind:"bundle",  tags:["smart lighting","bundle"],      note:"Smart bulbs + Dimmer + Panel",   url:"#"},
-  {id:53, cat:"flooring",  name:"Oak Laminate 8mm AC4 1.5mÂ² Pack",       price:18,   kind:"product", tags:["laminate","oak","AC4"],         note:"AC4 for high traffic areas",     url:"#"},
-  {id:54, cat:"flooring",  name:"Vinyl Click SPC Greige 4mm Plank",      price:22,   kind:"product", tags:["vinyl","SPC","waterproof"],     note:"100% waterproof â kitchens",     url:"#"},
-  {id:55, cat:"flooring",  name:"Floor Underlay 3mm Foam 10mÂ²",          price:12,   kind:"product", tags:["underlay","foam","3mm"],        note:"Essential for laminate",         url:"#"},
+  {id:51, cat:"lighting",  name:"Solar Garden Stake Light 4-pack",       price:22,   kind:"product", tags:["solar light","garden","stake"], note:"No wiring \u2014 solar powered",      url:"#"},
+  {id:52, cat:"lighting",  name:"\uD87D\uDCA1 Smart Home Lighting Bundle",         price:149,  kind:"bundle",  tags:["smart lighting","bundle"],      note:"Smart bulbs + Dimmer + Panel",   url:"#"},
+  {id:53, cat:"flooring",  name:"Oak Laminate 8mm AC4 1.5m\u00b2 Pack",       price:18,   kind:"product", tags:["laminate","oak","AC4"],         note:"AC4 for high traffic areas",     url:"#"},
+  {id:54, cat:"flooring",  name:"Vinyl Click SPC Greige 4mm Plank",      price:22,   kind:"product", tags:["vinyl","SPC","waterproof"],     note:"100% waterproof \u2014 kitchens",     url:"#"},
+  {id:55, cat:"flooring",  name:"Floor Underlay 3mm Foam 10m\u00b2",          price:12,   kind:"product", tags:["underlay","foam","3mm"],        note:"Essential for laminate",         url:"#"},
   {id:56, cat:"flooring",  name:"Skirting Board PVC White 2.4m",         price:4,    kind:"product", tags:["skirting board","white"],       note:"Finishing trim for any floor",   url:"#"},
   {id:57, cat:"flooring",  name:"Ceramic Floor Tile 60x60 Grey Matt",    price:15,   kind:"product", tags:["floor tile","60x60","grey"],    note:"Modern neutral tone",            url:"#"},
   {id:58, cat:"flooring",  name:"Tile Adhesive Flex C2 25kg",            price:18,   kind:"product", tags:["tile adhesive","flex","C2"],    note:"Ideal for underfloor heating",   url:"#"},
-  {id:59, cat:"flooring",  name:"ðªµ Laminate Starter Bundle 20mÂ²",       price:289,  kind:"bundle",  tags:["laminate","bundle","underlay"], note:"Laminate + Underlay + Skirting", url:"#"},
-  {id:60, cat:"flooring",  name:"ð² Tile Bundle Bathroom 6mÂ²",           price:179,  kind:"bundle",  tags:["tile bundle","bathroom"],       note:"Tiles + Adhesive + Grout",       url:"#"},
-  {id:61, cat:"paints",    name:"Interior Wall Paint White 10L",         price:39,   kind:"product", tags:["wall paint","white","10L"],     note:"Washable matt â covers 100mÂ²",   url:"#"},
+  {id:59, cat:"flooring",  name:"\uD87E\uDEB5 Laminate Starter Bundle 20m\u00b2",       price:289,  kind:"bundle",  tags:["laminate","bundle","underlay"], note:"Laminate + Underlay + Skirting", url:"#"},
+  {id:60, cat:"flooring",  name:"\uD87D\uDD32 Tile Bundle Bathroom 6m\u00b2",           price:179,  kind:"bundle",  tags:["tile bundle","bathroom"],       note:"Tiles + Adhesive + Grout",       url:"#"},
+  {id:61, cat:"paints",    name:"Interior Wall Paint White 10L",         price:39,   kind:"product", tags:["wall paint","white","10L"],     note:"Washable matt \u2014 covers 100m\u00b2",   url:"#"},
   {id:62, cat:"paints",    name:"Primer Universal 5L White",             price:22,   kind:"product", tags:["primer","universal","5L"],      note:"Essential prep coat",            url:"#"},
   {id:63, cat:"paints",    name:"Paint Roller Set 23cm + Tray",          price:9,    kind:"product", tags:["paint roller","23cm","tray"],   note:"Smooth professional finish",     url:"#"},
   {id:64, cat:"paints",    name:"Masking Tape 50m 38mm",                 price:4,    kind:"product", tags:["masking tape","50m","38mm"],    note:"Clean edges every time",         url:"#"},
   {id:65, cat:"paints",    name:"Vinyl Wallpaper Linen Texture Roll",    price:24,   kind:"product", tags:["wallpaper","vinyl","linen"],    note:"Durable washable vinyl",         url:"#"},
   {id:66, cat:"paints",    name:"Wood Stain Mahogany 1L Outdoor",        price:17,   kind:"product", tags:["wood stain","outdoor","1L"],    note:"UV protection for exterior",     url:"#"},
-  {id:67, cat:"paints",    name:"Spray Paint RAL9005 Jet Black 400ml",   price:7,    kind:"product", tags:["spray paint","black","400ml"],  note:"Quick dry â metal wood plastic", url:"#"},
-  {id:68, cat:"paints",    name:"ð¨ Room Refresh Bundle",                price:79,   kind:"bundle",  tags:["paint bundle","room refresh"],  note:"Paint + Primer + Roller + Tape", url:"#"},
+  {id:67, cat:"paints",    name:"Spray Paint RAL9005 Jet Black 400ml",   price:7,    kind:"product", tags:["spray paint","black","400ml"],  note:"Quick dry \u2014 metal wood plastic", url:"#"},
+  {id:68, cat:"paints",    name:"\uD87C\uDFA8 Room Refresh Bundle",                price:79,   kind:"bundle",  tags:["paint bundle","room refresh"],  note:"Paint + Primer + Roller + Tape", url:"#"},
   {id:69, cat:"electrical",name:"Circuit Breaker 16A Schneider",         price:12,   kind:"product", tags:["circuit breaker","16A"],        note:"Industry standard breaker",      url:"#"},
   {id:70, cat:"electrical",name:"Power Strip 5-Socket Surge 2m",        price:19,   kind:"product", tags:["power strip","surge","5 socket"],note:"Surge protected",               url:"#"},
   {id:71, cat:"electrical",name:"Cable NYM 3x1.5mm 50m Roll",           price:49,   kind:"product", tags:["cable","NYM","50m"],            note:"Standard indoor cable",          url:"#"},
   {id:72, cat:"electrical",name:"Socket Outlet Double Schuko White",     price:8,    kind:"product", tags:["socket","double","Schuko"],     note:"Standard EU double socket",      url:"#"},
   {id:73, cat:"electrical",name:"Smart Socket WiFi Energy Monitor",      price:24,   kind:"product", tags:["smart socket","WiFi","energy"], note:"Track energy use via app",       url:"#"},
-  {id:74, cat:"electrical",name:"LED Motion Sensor 360Â° Ceiling",        price:34,   kind:"product", tags:["motion sensor","LED","360"],    note:"Auto on/off â saves energy",     url:"#"},
+  {id:74, cat:"electrical",name:"LED Motion Sensor 360\u00b0 Ceiling",        price:34,   kind:"product", tags:["motion sensor","LED","360"],    note:"Auto on/off \u2014 saves energy",     url:"#"},
   {id:75, cat:"electrical",name:"Extension Cord 10m 3500W Orange",       price:16,   kind:"product", tags:["extension cord","10m","3500W"], note:"Heavy duty for power tools",     url:"#"},
-  {id:76, cat:"electrical",name:"â¡ Electrician Starter Bundle",         price:89,   kind:"bundle",  tags:["electrical","bundle","cable"],  note:"Cable 50m + 5 sockets + breakers",url:"#"},
+  {id:76, cat:"electrical",name:"\u26a1 Electrician Starter Bundle",         price:89,   kind:"bundle",  tags:["electrical","bundle","cable"],  note:"Cable 50m + 5 sockets + breakers",url:"#"},
   {id:77, cat:"plumbing",  name:"Shower Tray Acrylic 80x80 White",       price:119,  kind:"product", tags:["shower tray","80x80","white"],  note:"Anti-slip easy install",         url:"#"},
   {id:78, cat:"plumbing",  name:"Shower Enclosure 80x80 Chrome Glass",   price:249,  kind:"product", tags:["shower enclosure","chrome"],    note:"6mm tempered glass",             url:"#"},
-  {id:79, cat:"plumbing",  name:"Thermostatic Shower Mixer Chrome",      price:189,  kind:"product", tags:["shower mixer","thermostatic"],  note:"Constant temperature â safe",    url:"#"},
+  {id:79, cat:"plumbing",  name:"Thermostatic Shower Mixer Chrome",      price:189,  kind:"product", tags:["shower mixer","thermostatic"],  note:"Constant temperature \u2014 safe",    url:"#"},
   {id:80, cat:"plumbing",  name:"Copper Pipe 15mm 3m",                   price:12,   kind:"product", tags:["copper pipe","15mm","3m"],      note:"Standard heating pipe",          url:"#"},
   {id:81, cat:"plumbing",  name:"Pipe Fittings Set Copper 15mm 20pcs",   price:18,   kind:"product", tags:["pipe fittings","copper"],       note:"Elbows, tees, couplings",        url:"#"},
   {id:82, cat:"plumbing",  name:"Drain Unblocker Chemical 1L",           price:6,    kind:"product", tags:["drain cleaner","chemical"],     note:"Clears blockages in 30min",      url:"#"},
-  {id:83, cat:"plumbing",  name:"ð¿ Complete Shower Bundle",             price:499,  kind:"bundle",  tags:["shower bundle","complete"],     note:"Tray + Enclosure + Mixer",       url:"#"},
-  {id:84, cat:"security",  name:"Door Lock Smart Fingerprint + PIN",     price:149,  kind:"product", tags:["smart lock","fingerprint"],     note:"Keyless â 100 fingerprints",     url:"#"},
+  {id:83, cat:"plumbing",  name:"\uD87D\uDEBF Complete Shower Bundle",             price:499,  kind:"bundle",  tags:["shower bundle","complete"],     note:"Tray + Enclosure + Mixer",       url:"#"},
+  {id:84, cat:"security",  name:"Door Lock Smart Fingerprint + PIN",     price:149,  kind:"product", tags:["smart lock","fingerprint"],     note:"Keyless \u2014 100 fingerprints",     url:"#"},
   {id:85, cat:"security",  name:"IP Camera Outdoor 4MP WiFi",            price:69,   kind:"product", tags:["security camera","4MP","WiFi"], note:"Night vision app monitoring",    url:"#"},
   {id:86, cat:"security",  name:"NVR Recorder 4-Channel 1TB",            price:149,  kind:"product", tags:["NVR","recorder","4 channel"],   note:"Store 30 days footage",          url:"#"},
-  {id:87, cat:"security",  name:"Smoke Detector Interconnectable",       price:29,   kind:"product", tags:["smoke detector","fire alarm"],  note:"Link multiple â all alarm",      url:"#"},
+  {id:87, cat:"security",  name:"Smoke Detector Interconnectable",       price:29,   kind:"product", tags:["smoke detector","fire alarm"],  note:"Link multiple \u2014 all alarm",      url:"#"},
   {id:88, cat:"security",  name:"CO Detector Carbon Monoxide 10yr",      price:39,   kind:"product", tags:["CO detector","10 year"],        note:"10 year sealed battery",         url:"#"},
   {id:89, cat:"security",  name:"Smart Doorbell Camera WiFi HD",         price:89,   kind:"product", tags:["doorbell camera","HD","WiFi"],  note:"See who's at door anywhere",     url:"#"},
   {id:90, cat:"security",  name:"Padlock Heavy Duty 60mm Steel",         price:19,   kind:"product", tags:["padlock","60mm","steel"],       note:"Hardened steel shackle",         url:"#"},
-  {id:91, cat:"security",  name:"ð Home Security Bundle",               price:269,  kind:"bundle",  tags:["security bundle","camera"],     note:"Camera + Smoke + CO + Doorbell", url:"#"},
-  {id:92, cat:"family",    name:"Children Bathtub Rotho 76cm",           price:59,   kind:"product", tags:["baby bath","Rotho","infant"],   note:"Swiss quality â safe newborns",  url:"#"},
-  {id:93, cat:"family",    name:"Baby Monitor VTech Video 5 inch",       price:89,   kind:"product", tags:["baby monitor","video","VTech"], note:"5 inch screen â night vision",   url:"#"},
-  {id:94, cat:"family",    name:"Safety Gate Stair 75-82cm White",       price:49,   kind:"product", tags:["safety gate","stair","white"],  note:"Pressure mounted â no screws",   url:"#"},
+  {id:91, cat:"security",  name:"\uD87D\uDD10 Home Security Bundle",               price:269,  kind:"bundle",  tags:["security bundle","camera"],     note:"Camera + Smoke + CO + Doorbell", url:"#"},
+  {id:92, cat:"family",    name:"Children Bathtub Rotho 76cm",           price:59,   kind:"product", tags:["baby bath","Rotho","infant"],   note:"Swiss quality \u2014 safe newborns",  url:"#"},
+  {id:93, cat:"family",    name:"Baby Monitor VTech Video 5 inch",       price:89,   kind:"product", tags:["baby monitor","video","VTech"], note:"5 inch screen \u2014 night vision",   url:"#"},
+  {id:94, cat:"family",    name:"Safety Gate Stair 75-82cm White",       price:49,   kind:"product", tags:["safety gate","stair","white"],  note:"Pressure mounted \u2014 no screws",   url:"#"},
   {id:95, cat:"family",    name:"Outlet Cover Safety Plugs 12pcs",       price:6,    kind:"product", tags:["outlet cover","safety","child"],note:"Essential childproofing",        url:"#"},
 
-  // âââ BUNDLES âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+  // \u2500\u2500\u2500 BUNDLES \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
   // Room bundles
-  {id:97,  cat:"bathroom",   name:"ð  Complete Bathroom Renovation",    price:1249, kind:"bundle", tags:["bathroom","complete","renovation"],  note:"Mixer + Faucet + Toilet + Cabinet + Sink + Mirror", url:"#"},
-  {id:98,  cat:"kitchen",    name:"ð³ Complete Kitchen Setup",           price:1799, kind:"bundle", tags:["kitchen","complete","appliances"],   note:"Fridge + Hood + Sink + Oven + Kettle + Dishwasher", url:"#"},
-  {id:99,  cat:"garden",     name:"ð¿ Full Garden Starter Kit",          price:349,  kind:"bundle", tags:["garden","starter","complete"],       note:"Mower + Hose + Shears + Gloves + Storage box",      url:"#"},
-  {id:100, cat:"furniture",  name:"ðï¸ Living Room Bundle",               price:749,  kind:"bundle", tags:["living room","sofa","furniture"],    note:"Dining table + 4 chairs + Bookshelf + TV stand",    url:"#"},
-  {id:101, cat:"security",   name:"ð¡ Full Home Security Bundle",        price:449,  kind:"bundle", tags:["security","complete","smart home"],  note:"2 cameras + NVR + Doorbell + Smart lock + Smoke/CO", url:"#"},
+  {id:97,  cat:"bathroom",   name:"\uD87C\uDFE0 Complete Bathroom Renovation",    price:1249, kind:"bundle", tags:["bathroom","complete","renovation"],  note:"Mixer + Faucet + Toilet + Cabinet + Sink + Mirror", url:"#"},
+  {id:98,  cat:"kitchen",    name:"\uD87C\uDF73 Complete Kitchen Setup",           price:1799, kind:"bundle", tags:["kitchen","complete","appliances"],   note:"Fridge + Hood + Sink + Oven + Kettle + Dishwasher", url:"#"},
+  {id:99,  cat:"garden",     name:"\uD87C\uDF3F Full Garden Starter Kit",          price:349,  kind:"bundle", tags:["garden","starter","complete"],       note:"Mower + Hose + Shears + Gloves + Storage box",      url:"#"},
+  {id:100, cat:"furniture",  name:"\uD87D\uDECBï¸ Living Room Bundle",               price:749,  kind:"bundle", tags:["living room","sofa","furniture"],    note:"Dining table + 4 chairs + Bookshelf + TV stand",    url:"#"},
+  {id:101, cat:"security",   name:"\uD87C\uDFE1 Full Home Security Bundle",        price:449,  kind:"bundle", tags:["security","complete","smart home"],  note:"2 cameras + NVR + Doorbell + Smart lock + Smoke/CO", url:"#"},
   // Style bundles
-  {id:102, cat:"bathroom",   name:"ð¤ Premium Black Bathroom",           price:899,  kind:"bundle", tags:["black","premium","designer"],        note:"Black mixer + faucet + LED mirror + Cabinet + Sink", url:"#"},
-  {id:103, cat:"kitchen",    name:"âª Scandinavian Kitchen Bundle",      price:649,  kind:"bundle", tags:["scandinavian","white","minimal"],    note:"White oven + Kettle + Breakfast maker + LED strip",  url:"#"},
-  {id:104, cat:"lighting",   name:"ð¡ Full Home Lighting Bundle",        price:299,  kind:"bundle", tags:["lighting","smart","complete"],       note:"6x Smart bulbs + 2x Dimmer + LED panel + Floor lamp",url:"#"},
+  {id:102, cat:"bathroom",   name:"\uD87D\uDDA4 Premium Black Bathroom",           price:899,  kind:"bundle", tags:["black","premium","designer"],        note:"Black mixer + faucet + LED mirror + Cabinet + Sink", url:"#"},
+  {id:103, cat:"kitchen",    name:"\u26aa Scandinavian Kitchen Bundle",      price:649,  kind:"bundle", tags:["scandinavian","white","minimal"],    note:"White oven + Kettle + Breakfast maker + LED strip",  url:"#"},
+  {id:104, cat:"lighting",   name:"\uD87D\uDCA1 Full Home Lighting Bundle",        price:299,  kind:"bundle", tags:["lighting","smart","complete"],       note:"6x Smart bulbs + 2x Dimmer + LED panel + Floor lamp",url:"#"},
   // Project bundles
-  {id:105, cat:"flooring",   name:"ðªµ Full Floor Renovation 25mÂ²",      price:599,  kind:"bundle", tags:["flooring","renovation","25m2"],      note:"Laminate + Underlay + Skirting + Adhesive + Level",  url:"#"},
-  {id:106, cat:"paints",     name:"ð¨ Full Room Repaint Bundle",         price:129,  kind:"bundle", tags:["paint","walls","complete"],          note:"10L Paint + Primer + 2x Roller + Tape + Wallpaper",  url:"#"},
-  {id:107, cat:"plumbing",   name:"ð¿ Premium Shower Room Bundle",       price:699,  kind:"bundle", tags:["shower","bathroom","premium"],       note:"Enclosure + Tray + Thermostatic mixer + Tiles 6mÂ²",  url:"#"},
-  {id:108, cat:"electrical", name:"â¡ Full Apartment Electrical Kit",    price:249,  kind:"bundle", tags:["electrical","apartment","complete"], note:"50m cable + 10 sockets + Breakers + Smart sockets",  url:"#"},
+  {id:105, cat:"flooring",   name:"\uD87E\uDEB5 Full Floor Renovation 25m\u00b2",      price:599,  kind:"bundle", tags:["flooring","renovation","25m2"],      note:"Laminate + Underlay + Skirting + Adhesive + Level",  url:"#"},
+  {id:106, cat:"paints",     name:"\uD87C\uDFA8 Full Room Repaint Bundle",         price:129,  kind:"bundle", tags:["paint","walls","complete"],          note:"10L Paint + Primer + 2x Roller + Tape + Wallpaper",  url:"#"},
+  {id:107, cat:"plumbing",   name:"\uD87D\uDEBF Premium Shower Room Bundle",       price:699,  kind:"bundle", tags:["shower","bathroom","premium"],       note:"Enclosure + Tray + Thermostatic mixer + Tiles 6m\u00b2",  url:"#"},
+  {id:108, cat:"electrical", name:"\u26a1 Full Apartment Electrical Kit",    price:249,  kind:"bundle", tags:["electrical","apartment","complete"], note:"50m cable + 10 sockets + Breakers + Smart sockets",  url:"#"},
   // Smart home bundles
-  {id:109, cat:"security",   name:"ð± Smart Home Starter Bundle",        price:379,  kind:"bundle", tags:["smart home","WiFi","starter"],       note:"Smart lock + Doorbell + 4 Smart bulbs + 2 Dimmers",  url:"#"},
-  {id:110, cat:"electrical", name:"ð Energy Monitor Bundle",            price:149,  kind:"bundle", tags:["energy","smart","monitor"],          note:"4x Smart sockets + Motion sensor + LED strip 2m",    url:"#"},
+  {id:109, cat:"security",   name:"\uD87D\uDCF1 Smart Home Starter Bundle",        price:379,  kind:"bundle", tags:["smart home","WiFi","starter"],       note:"Smart lock + Doorbell + 4 Smart bulbs + 2 Dimmers",  url:"#"},
+  {id:110, cat:"electrical", name:"\uD87D\uDD0C Energy Monitor Bundle",            price:149,  kind:"bundle", tags:["energy","smart","monitor"],          note:"4x Smart sockets + Motion sensor + LED strip 2m",    url:"#"},
   // Budget bundles
-  {id:111, cat:"bathroom",   name:"ð° Budget Bathroom Refresh",          price:299,  kind:"bundle", tags:["budget","bathroom","refresh"],       note:"Basic mixer + Bamboo mat + Mirror + Coat rack",      url:"#"},
-  {id:112, cat:"kitchen",    name:"ð° Budget Kitchen Essentials",        price:199,  kind:"bundle", tags:["budget","kitchen","essentials"],     note:"Kettle + Mini oven + Breakfast maker + LED strip",   url:"#"},
-  {id:113, cat:"garden",     name:"ð° Budget Garden Bundle",             price:99,   kind:"bundle", tags:["budget","garden","tools"],           note:"Shovel + Gloves + Peat 150L + Bird feeder + Hose",   url:"#"},
+  {id:111, cat:"bathroom",   name:"\uD87D\uDCB0 Budget Bathroom Refresh",          price:299,  kind:"bundle", tags:["budget","bathroom","refresh"],       note:"Basic mixer + Bamboo mat + Mirror + Coat rack",      url:"#"},
+  {id:112, cat:"kitchen",    name:"\uD87D\uDCB0 Budget Kitchen Essentials",        price:199,  kind:"bundle", tags:["budget","kitchen","essentials"],     note:"Kettle + Mini oven + Breakfast maker + LED strip",   url:"#"},
+  {id:113, cat:"garden",     name:"\uD87D\uDCB0 Budget Garden Bundle",             price:99,   kind:"bundle", tags:["budget","garden","tools"],           note:"Shovel + Gloves + Peat 150L + Bird feeder + Hose",   url:"#"},
   // Seasonal/special
-  {id:114, cat:"garden",     name:"âï¸ Summer Garden Bundle",             price:229,  kind:"bundle", tags:["summer","outdoor","garden"],         note:"Pressure washer + Hose reel + Solar lights + Shears",url:"#"},
-  {id:115, cat:"tools",      name:"ð¨ Pro DIY Workshop Bundle",          price:449,  kind:"bundle", tags:["DIY","professional","workshop"],     note:"Drill + Circular saw + Bits + Level + Tool bag",     url:"#"},
-  {id:116, cat:"family",     name:"ð¨âð©âð§ New Home Family Bundle",             price:599,  kind:"bundle", tags:["family","new home","complete"],      note:"Baby bath + Safety gates + Outlet covers + Monitor", url:"#"},
+  {id:114, cat:"garden",     name:"\u2600ï¸ Summer Garden Bundle",             price:229,  kind:"bundle", tags:["summer","outdoor","garden"],         note:"Pressure washer + Hose reel + Solar lights + Shears",url:"#"},
+  {id:115, cat:"tools",      name:"\uD87D\uDD28 Pro DIY Workshop Bundle",          price:449,  kind:"bundle", tags:["DIY","professional","workshop"],     note:"Drill + Circular saw + Bits + Level + Tool bag",     url:"#"},
+  {id:116, cat:"family",     name:"\uD87D\uDC68\u200d\uD87D\uDC69\u200d\uD87D\uDC67 New Home Family Bundle",             price:599,  kind:"bundle", tags:["family","new home","complete"],      note:"Baby bath + Safety gates + Outlet covers + Monitor", url:"#"},
   {id:96, cat:"family",    name:"Non-Slip Rug Pad 120x80cm",             price:14,   kind:"product", tags:["rug pad","non-slip","120x80"],  note:"Keeps rugs in place safely",     url:"#"},
 ];
 
 const DETAILS = {
-  bathroom:   ["2â8 kg", "Ceramic / Chrome / Glass", "2 years", "Professional recommended"],
-  kitchen:    ["5â40 kg", "Stainless steel / Granite", "2 years", "Professional recommended"],
-  garden:     ["0.5â15 kg", "Steel / Plastic", "1 year", "DIY friendly"],
-  tools:      ["1â12 kg", "Steel / Aluminium", "2 years", "DIY friendly"],
-  furniture:  ["8â45 kg", "MDF / Solid wood", "2 years", "Self-assembly"],
-  lighting:   ["0.2â3 kg", "Aluminium / Polycarbonate", "3 years", "DIY friendly"],
-  flooring:   ["6â18 kg/mÂ²", "HDF / Ceramic / SPC", "10â25 years", "DIY friendly"],
-  paints:     ["1â12 kg", "Water / solvent based", "Coverage 8â12mÂ²/L", "DIY friendly"],
-  electrical: ["0.1â2 kg", "Copper / ABS Plastic", "2 years", "Licensed electrician"],
-  plumbing:   ["1â20 kg", "Acrylic / Copper / Glass", "2 years", "Professional recommended"],
-  security:   ["0.2â3 kg", "Steel / ABS / Glass", "2 years", "DIY or professional"],
-  family:     ["1â3 kg", "PP Plastic / BPA free", "2 years", "No installation needed"],
+  bathroom:   ["2\u20138 kg", "Ceramic / Chrome / Glass", "2 years", "Professional recommended"],
+  kitchen:    ["5\u201340 kg", "Stainless steel / Granite", "2 years", "Professional recommended"],
+  garden:     ["0.5\u201315 kg", "Steel / Plastic", "1 year", "DIY friendly"],
+  tools:      ["1\u201312 kg", "Steel / Aluminium", "2 years", "DIY friendly"],
+  furniture:  ["8\u201345 kg", "MDF / Solid wood", "2 years", "Self-assembly"],
+  lighting:   ["0.2\u20133 kg", "Aluminium / Polycarbonate", "3 years", "DIY friendly"],
+  flooring:   ["6\u201318 kg/m\u00b2", "HDF / Ceramic / SPC", "10\u201325 years", "DIY friendly"],
+  paints:     ["1\u201312 kg", "Water / solvent based", "Coverage 8\u201312m\u00b2/L", "DIY friendly"],
+  electrical: ["0.1\u20132 kg", "Copper / ABS Plastic", "2 years", "Licensed electrician"],
+  plumbing:   ["1\u201320 kg", "Acrylic / Copper / Glass", "2 years", "Professional recommended"],
+  security:   ["0.2\u20133 kg", "Steel / ABS / Glass", "2 years", "DIY or professional"],
+  family:     ["1\u20133 kg", "PP Plastic / BPA free", "2 years", "No installation needed"],
 };
 
 const CATEGORIES = [
@@ -218,7 +218,7 @@ const CATEGORIES = [
 
 const SYSTEM = "You are BUND, an AI shopping assistant for DEPO hardware stores in the Baltics. You must not invent products. You must choose only from the provided candidate catalog items. Return STRICT JSON only with this shape: {\"selected_ids\":[number|string],\"follow_up\":string}. Select 4 to 6 best items for the user's request. Prefer coherent sets, respect budget/style/project intent when visible, and keep the same language as the user.";
 
-const CAT_SYSTEM = "You are BUND, an AI shopping assistant for DEPO hardware stores. Give exactly 12 product recommendations for the requested category. MANDATORY: Each product MUST be on its own line in this EXACT format: **Product Name â â¬price**. Use a long dash â not a hyphen. Examples: **Bosch Cordless Drill 18V â â¬149**, **Garden hose 20m â â¬28**. Be specific with realistic product names and price ranges. Output only the 12 product lines, nothing else.";
+const CAT_SYSTEM = "You are BUND, an AI shopping assistant for DEPO hardware stores. Give exactly 12 product recommendations for the requested category. MANDATORY: Each product MUST be on its own line in this EXACT format: **Product Name \u2014 \u20acprice**. Use a long dash \u2014 not a hyphen. Examples: **Bosch Cordless Drill 18V \u2014 \u20ac149**, **Garden hose 20m \u2014 \u20ac28**. Be specific with realistic product names and price ranges. Output only the 12 product lines, nothing else.";
 
 function parseBold(text) {
   var parts = text.split("**");
@@ -245,7 +245,7 @@ function parseProducts(reply) {
     if (dash < 2) continue;
     var name = bold.slice(0, dash).trim();
     var rest = bold.slice(dash + 1).trim();
-    var eur = rest.indexOf("â¬");
+    var eur = rest.indexOf("\u20ac");
     var price = eur >= 0 ? rest.slice(eur + 1).trim().split(" ")[0] : rest.split(" ")[0];
     if (name.length > 2) parsed.push({ name: name, price: price, id: Math.random() });
   }
@@ -255,7 +255,7 @@ function parseProducts(reply) {
 
 function parseBudget(query) {
   const text = String(query || "").toLowerCase();
-  const patterns = [/under\s*â¬?\s*(\d+)/i,/below\s*â¬?\s*(\d+)/i,/up to\s*â¬?\s*(\d+)/i,/max\s*â¬?\s*(\d+)/i,/budget\s*â¬?\s*(\d+)/i,/Ð´Ð¾\s*â¬?\s*(\d+)/i,/Ð´Ð¾\s*(\d+)\s*ÐµÐ²ÑÐ¾/i];
+  const patterns = [/under\s*\u20ac?\s*(\d+)/i,/below\s*\u20ac?\s*(\d+)/i,/up to\s*\u20ac?\s*(\d+)/i,/max\s*\u20ac?\s*(\d+)/i,/budget\s*\u20ac?\s*(\d+)/i,/Ð´Ð¾\s*\u20ac?\s*(\d+)/i,/Ð´Ð¾\s*(\d+)\s*ÐµÐ²ÑÐ¾/i];
   for (const pattern of patterns) { const match = text.match(pattern); if (match) return Number(match[1]); }
   return null;
 }
@@ -319,7 +319,7 @@ function pickCatalogProductsByIds(selectedIds, candidatePool, fallbackQuery) {
 }
 
 function formatAssistantReply(items, followUp) {
-  const lines = items.slice(0, 6).map((item) => `**${item.name} â â¬${item.price}**`);
+  const lines = items.slice(0, 6).map((item) => `**${item.name} \u2014 \u20ac${item.price}**`);
   lines.push(followUp || "Do you want budget or premium options?");
   return lines.join("\n");
 }
@@ -338,7 +338,7 @@ function buildBundle(items, userMsg) {
   return {
     name: bundleName,
     items: validItems.map(function(p, i) { return { id: i, name: p.name, price: p.price }; }),
-    totalPrice: totalPrice > 0 ? totalPrice.toFixed(0) : "â",
+    totalPrice: totalPrice > 0 ? totalPrice.toFixed(0) : "\u2014",
   };
 }
 
@@ -348,7 +348,7 @@ function DynamicBundleCard(props) {
   return (
     <div style={{ border: "2px solid #EAB308", borderRadius: 16, padding: 16, background: "#FEFCE8", margin: "12px 0", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", animation: "fadeIn 0.4s ease both" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-        <div style={{ fontWeight: 700, fontSize: 15, color: "#1A1A1A" }}>ð¦ {bundle.name}</div>
+        <div style={{ fontWeight: 700, fontSize: 15, color: "#1A1A1A" }}>\uD87D\uDCE6 {bundle.name}</div>
         <div style={{ background: "#FEF08A", color: "#854D0E", fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 6, letterSpacing: 0.5 }}>AI RECOMMENDED</div>
       </div>
       <div style={{ marginBottom: 14 }}>
@@ -356,7 +356,7 @@ function DynamicBundleCard(props) {
           return (
             <div key={item.id} style={{ display: "flex", justifyContent: "space-between", fontSize: 13, borderBottom: "1px solid #FDE68A", paddingBottom: 6, marginBottom: 6 }}>
               <span style={{ color: "#374151" }}>{item.name}</span>
-              <span style={{ fontWeight: 600, color: "#1A1A1A" }}>{"â¬" + item.price}</span>
+              <span style={{ fontWeight: 600, color: "#1A1A1A" }}>{"\u20ac" + item.price}</span>
             </div>
           );
         })}
@@ -364,7 +364,7 @@ function DynamicBundleCard(props) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 10, borderTop: "2px solid #FDE68A" }}>
         <div>
           <div style={{ fontSize: 10, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: 0.5 }}>Total Price</div>
-          <div style={{ fontSize: 26, fontWeight: 900, color: "#1A1A1A" }}>{"â¬" + bundle.totalPrice}</div>
+          <div style={{ fontSize: 26, fontWeight: 900, color: "#1A1A1A" }}>{"\u20ac" + bundle.totalPrice}</div>
         </div>
         <button onClick={function() { onAddToCart(bundle.items); }}
           style={{ background: "#1A1A1A", color: "#FFFFFF", padding: "10px 20px", borderRadius: 10, fontWeight: 700, fontSize: 13, border: "none", cursor: "pointer", fontFamily: "inherit" }}>
@@ -389,7 +389,7 @@ function ProductCard(props) {
       </div>
       <div style={{ flex: 1, padding: "8px 10px" }}>
         <div style={{ fontSize: 12, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.3, marginBottom: 3 }}>{p.name}</div>
-        <div style={{ fontSize: 14, fontWeight: 800, color: "#CC0000" }}>{"â¬" + p.price}</div>
+        <div style={{ fontSize: 14, fontWeight: 800, color: "#CC0000" }}>{"\u20ac" + p.price}</div>
       </div>
       <button onClick={props.onAdd} style={{ background: "#1A1A1A", color: "#FFFFFF", border: "none", padding: "0 14px", fontSize: 20, fontWeight: 300, cursor: "pointer", fontFamily: "inherit", alignSelf: "stretch", display: "flex", alignItems: "center" }}>+</button>
     </div>
@@ -480,7 +480,7 @@ function LeftPanel(props) {
                     <div style={{ width: 52, height: 52, flexShrink: 0, background: SURF, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>&#128230;</div>
                     <div style={{ flex: 1, padding: "8px 10px" }}>
                       <div style={{ fontSize: 12, fontWeight: 700, color: TEXT, lineHeight: 1.3, marginBottom: 2 }}>{p.name}</div>
-                      <div style={{ fontSize: 13, fontWeight: 800, color: RED }}>{"â¬" + p.price}</div>
+                      <div style={{ fontSize: 13, fontWeight: 800, color: RED }}>{"\u20ac" + p.price}</div>
                     </div>
                     <div style={{ display: "flex", flexShrink: 0, alignSelf: "stretch" }}>
                       {inCart && (
@@ -517,7 +517,7 @@ function LeftPanel(props) {
               <div style={{ marginTop: 12, background: TEXT, borderRadius: 12, padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
                   <div style={{ fontSize: 11, color: "#AAAAAA" }}>{cart.reduce(function(s, c) { return s + c.qty; }, 0)} items in cart</div>
-                  <div style={{ fontSize: 20, fontWeight: 900, color: BG }}>{"â¬" + cartTotal.toFixed(0)}</div>
+                  <div style={{ fontSize: 20, fontWeight: 900, color: BG }}>{"\u20ac" + cartTotal.toFixed(0)}</div>
                 </div>
                 <button style={{ background: RED, color: BG, border: "none", borderRadius: 8, padding: "8px 16px", fontWeight: 700, fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>
                   Checkout &#8594;
@@ -525,7 +525,7 @@ function LeftPanel(props) {
               </div>
             )}
 
-            <div style={{ textAlign: "center", fontSize: 11, color: MUTED, marginTop: 10 }}>Prices are indicative Â· Powered by BUND AI</div>
+            <div style={{ textAlign: "center", fontSize: 11, color: MUTED, marginTop: 10 }}>Prices are indicative \u00b7 Powered by BUND AI</div>
           </div>
         ) : (
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: 10 }}>
@@ -760,7 +760,7 @@ function BundDepo() {
                       {[
                         ["&#127968;", "Describe a project", "25m2 living room renovation"],
                         ["&#128269;", "Search by style", "Scandinavian living room, warm tones"],
-                        ["&#128176;", "Set a budget", "Garden tools starter kit under â¬200"],
+                        ["&#128176;", "Set a budget", "Garden tools starter kit under \u20ac200"],
                         ["&#128230;", "Find a bundle", "Complete shower room bundle"],
                         ["&#11088;", "AI recommendations", "What are the most popular products this month"],
                       ].map(function(row) {
