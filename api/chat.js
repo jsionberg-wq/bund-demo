@@ -5,39 +5,27 @@ module.exports = async (req, res) => {
 
   const body = req.body;
   const mode = body?.mode || "catalog-select";
-
   let userContent = "";
   if (mode === "catalog-select") {
-    userContent = `User request: "${body.userMessage}". Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 items only from candidate ids.`;
+    userContent = `User request: "${body.userMessage}". Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only: {"selected_ids":[numbers],"follow_up":"string"}. Choose 4 to 6 item ids from candidate list.`;
   } else if (mode === "catalog-select-more") {
-    userContent = `User request: "${body.userMessage}". Already shown: ${(body.existingNames || []).join(", ")}. Candidate catalog items: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only with selected_ids and follow_up. Choose 4 to 6 DIFFERENT items only from candidate ids.`;
+    userContent = `User request: "${body.userMessage}". Already shown: ${(body.existingNames || []).join(", ")}. Candidates: ${JSON.stringify(body.candidatePool || [])}. Return STRICT JSON only: {"selected_ids":[numbers],"follow_up":"string"}. Choose 4 to 6 DIFFERENT item ids.`;
   } else {
     const msgs = body.messages || [{ role: "user", content: body.userMessage || "" }];
     userContent = msgs[msgs.length - 1]?.content || body.userMessage || "";
   }
 
-  const apiKey = process.env.OPENROUTER_API_KEY || "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";
-  const payload = JSON.stringify({
-    model: "deepseek/deepseek-chat-v3-0324:free",
-    messages: [
-      { role: "system", content: body.system || "" },
-      { role: "user", content: userContent }
-    ],
-    max_tokens: 600,
-    temperature: 0.3,
-    response_format: { type: "json_object" }
+  const apiKey = "AIzaSyCfVE29ThscdDmxB_2qz81PgRBr9QLjhKY";
+  const geminiBody = JSON.stringify({
+    contents: [{ parts: [{ text: (body.system || "") + "\n\n" + userContent }] }],
+    generationConfig: { temperature: 0.2, maxOutputTokens: 600 }
   });
 
+  const path = `/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
   const options = {
-    hostname: "openrouter.ai",
-    path: "/api/v1/chat/completions",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`,
-      "HTTP-Referer": "https://bund-demo.vercel.app",
-      "X-Title": "BUND Demo"
-    }
+    hostname: "generativelanguage.googleapis.com",
+    path, method: "POST",
+    headers: { "Content-Type": "application/json" }
   };
 
   return new Promise((resolve) => {
@@ -50,17 +38,16 @@ module.exports = async (req, res) => {
           if (apiRes.statusCode !== 200) {
             res.status(apiRes.statusCode).json({ error: parsed?.error?.message || "API error" });
           } else {
-            const text = parsed.choices?.[0]?.message?.content || "";
+            let text = parsed.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            text = text.replace(/```json\n?/g, "").replace(/```/g, "").trim();
             res.status(200).json({ text });
           }
-        } catch {
-          res.status(500).json({ error: "Parse error" });
-        }
+        } catch { res.status(500).json({ error: "Parse error" }); }
         resolve();
       });
     });
     apiReq.on("error", (e) => { res.status(500).json({ error: e.message }); resolve(); });
-    apiReq.write(payload);
+    apiReq.write(geminiBody);
     apiReq.end();
   });
 };
