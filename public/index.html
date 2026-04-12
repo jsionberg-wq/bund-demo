@@ -18,7 +18,6 @@ function priceToNumber(v){var n=parseFloat(String(v).replace(",",".").replace(/[
 function dedupeProducts(list){var seen=new Set();return list.filter(function(item){var k=normalizeText(item.name);if(!k||seen.has(k))return false;seen.add(k);return true;});}
 function tryParseJson(text){try{var c=String(text||"").trim();var m=c.match(/\{[\s\S]*\}/);if(!m)return null;return JSON.parse(m[0]);}catch(e){return null;}}
 
-import { useState, useRef, useEffect, useMemo } from "react";
 
 const products = [
   {id:1,  cat:"bathroom",  name:"Bath Mixer Elegance 35mm Black",       price:129,  kind:"product", tags:["bath mixer","matte black"],     note:"Pairs with basin mixer",        url:"https://online.depo.ee/product/384010"},
