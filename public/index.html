@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover"/>
   <title>BUND AI - Senukai Shopping Assistant</title>
   <style>* { margin:0; padding:0; box-sizing:border-box; } body { font-family: Arial, sans-serif; } #root { height:100vh; }</style>
 </head>
@@ -533,7 +533,7 @@ function BundDepo() {
   var [feedback, setFeedback] = useState({});
   var [apiKey] = useState("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");
   var chatEnd = useRef(null);
-  var [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth < 768);
+  var [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth < 900);
   var [showChat, setShowChat] = useState(false);
   var [cartCount, setCartCount] = useState(0);
   var [aiProducts, setAiProducts] = useState([]);
@@ -545,7 +545,7 @@ function BundDepo() {
 
 
   useEffect(function() {
-    function onResize() { setIsMobile(window.innerWidth < 768); }
+    function onResize() { setIsMobile(window.innerWidth < 900); }
     window.addEventListener("resize", onResize);
     return function() { window.removeEventListener("resize", onResize); };
   }, []);
@@ -662,20 +662,20 @@ function BundDepo() {
       {/* HEADER */}
       <div style={{ background: BG, borderBottom: "2px solid " + RED, flexShrink: 0 }}>
         <div style={{ padding: "10px 20px", display: "flex", alignItems: "center", gap: 16, justifyContent: "space-between" }}>
-          <div style={{ background: RED, color: BG, fontWeight: 900, fontSize: 22, padding: "4px 12px", letterSpacing: 2 }}>Senukai</div>
+          <div style={{ background: RED, color: BG, fontWeight: 900, fontSize: isMobile ? 17 : 22, padding: isMobile ? "3px 8px" : "4px 12px", letterSpacing: 2 }}>Senukai</div>
               <div style={{ background: "#FFF3CD", color: "#856404", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, border: "1px solid #ffc107", letterSpacing: 1 }}>DEMO</div>
-          <div style={{ flex: 1, maxWidth: 500, display: "flex" }}>
+          <div style={{ flex: 1, maxWidth: 500, display: isMobile ? "none" : "flex" }}>
             <input placeholder="Search by name or barcode..." style={{ flex: 1, border: "1px solid " + BORDER, borderRight: "none", borderRadius: "4px 0 0 4px", padding: "8px 14px", fontSize: 13, outline: "none" }} />
             <button style={{ background: RED, color: BG, border: "none", borderRadius: "0 4px 4px 0", padding: "8px 16px", cursor: "pointer", fontSize: 16 }}>&#9901;</button>
           </div>
-          <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+          <div style={{ display: "flex", gap: isMobile ? 8 : 14, alignItems: "center" }}>
             {isMobile && (
-              <button onClick={function() { setShowChat(function(v) { return !v; }); }} style={{ background: showChat ? RED : SURF, color: showChat ? BG : TEXT, border: "1px solid " + BORDER, borderRadius: 8, padding: "6px 12px", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>AI Chat</button>
+              <button onClick={function() { setShowChat(function(v) { return !v; }); }} style={{ background: showChat ? RED : SURF, color: showChat ? BG : TEXT, border: "1px solid " + BORDER, borderRadius: 8, padding: "8px 14px", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>AI Chat</button>
             )}
-            <div style={{ fontSize: 11, color: MUTED, textAlign: "center", cursor: "pointer" }}>
+            <div style={{ fontSize: 11, color: MUTED, textAlign: "center", cursor: "pointer", display: isMobile ? "none" : "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ fontSize: 18 }}>&#9825;</div>Wishlist
             </div>
-            <div style={{ fontSize: 11, color: MUTED, textAlign: "center", cursor: "pointer" }}>
+            <div style={{ fontSize: 11, color: MUTED, textAlign: "center", cursor: "pointer", display: isMobile ? "none" : "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ fontSize: 18 }}>&#128100;</div>Sign in
             </div>
             <div onClick={function() { setCartCount(function(n) { return n + 1; }); }} style={{ fontSize: 11, color: MUTED, textAlign: "center", cursor: "pointer", position: "relative" }}>
