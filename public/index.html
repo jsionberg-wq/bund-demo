@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BUND AI - DEPO Shopping Assistant</title>
+  <title>BUND AI - Senukai Shopping Assistant</title>
   <style>* { margin:0; padding:0; box-sizing:border-box; } body { font-family: Arial, sans-serif; } #root { height:100vh; }</style>
 </head>
 <body>
@@ -20,8 +20,8 @@ function tryParseJson(text){try{var c=String(text||"").trim();var m=c.match(/\{[
 
 
 const products = [
-  {id:1,  cat:"bathroom",  name:"Bath Mixer Elegance 35mm Black",       price:129,  kind:"product", tags:["bath mixer","matte black"],     note:"Pairs with basin mixer",        url:"https://online.depo.ee/product/384010"},
-  {id:2,  cat:"bathroom",  name:"Basin Faucet Elegance Swivel Black",    price:109,  kind:"product", tags:["basin faucet","matte black"],   note:"Same Elegance series",           url:"https://online.depo.ee/product/383997"},
+  {id:1,  cat:"bathroom",  name:"Bath Mixer Elegance 35mm Black",       price:129,  kind:"product", tags:["bath mixer","matte black"],     note:"Pairs with basin mixer",        url:"https://senukai.lt/product/384010"},
+  {id:2,  cat:"bathroom",  name:"Basin Faucet Elegance Swivel Black",    price:109,  kind:"product", tags:["basin faucet","matte black"],   note:"Same Elegance series",           url:"https://senukai.lt/product/383997"},
   {id:3,  cat:"bathroom",  name:"Toilet Senator Cersanit White",         price:189,  kind:"product", tags:["toilet","white","Cersanit"],    note:"Classic reliable choice",        url:"#"},
   {id:4,  cat:"bathroom",  name:"Cabinet Adagio XL Matt Grey/Black Oak", price:349,  kind:"product", tags:["cabinet","vanity","grey"],      note:"Pairs with ceramic sink",        url:"#"},
   {id:5,  cat:"bathroom",  name:"Ceramic Countertop Sink 500x400 White", price:149,  kind:"product", tags:["vessel sink","ceramic"],        note:"Pairs with Adagio cabinet",      url:"#"},
@@ -194,9 +194,9 @@ const CATEGORIES = [
   { key: "electro",     label: "Home Electronics",        emoji: "\u{1F4FA}", sub: "TVs, appliances, gadgets" },
 ];
 
-const SYSTEM = "You are BUND, an AI shopping assistant for DEPO hardware stores in the Baltics. You must not invent products. You must choose only from the provided candidate catalog items. Return STRICT JSON only with this shape: {\"selected_ids\":[number|string],\"follow_up\":string}. Select 4 to 6 best items for the user's request. Prefer coherent sets, respect budget/style/project intent when visible, and keep the same language as the user.";
+const SYSTEM = "You are BUND, an AI shopping assistant for Senukai stores in the Baltics. You must not invent products. You must choose only from the provided candidate catalog items. Return STRICT JSON only with this shape: {\"selected_ids\":[number|string],\"follow_up\":string}. Select 4 to 6 best items for the user's request. Prefer coherent sets, respect budget/style/project intent when visible, and keep the same language as the user.";
 
-const CAT_SYSTEM = "You are BUND, an AI shopping assistant for DEPO hardware stores. Give exactly 12 product recommendations for the requested category. MANDATORY: Each product MUST be on its own line in this EXACT format: **Product Name \u2014 \u20ACprice**. Use a long dash \u2014 not a hyphen. Examples: **Bosch Cordless Drill 18V \u2014 \u20AC149**, **Garden hose 20m \u2014 \u20AC28**. Be specific with realistic product names and price ranges. Output only the 12 product lines, nothing else.";
+const CAT_SYSTEM = "You are BUND, an AI shopping assistant for Senukai stores. Give exactly 12 product recommendations for the requested category. MANDATORY: Each product MUST be on its own line in this EXACT format: **Product Name \u2014 \u20ACprice**. Use a long dash \u2014 not a hyphen. Examples: **Bosch Cordless Drill 18V \u2014 \u20AC149**, **Garden hose 20m \u2014 \u20AC28**. Be specific with realistic product names and price ranges. Output only the 12 product lines, nothing else.";
 
 function parseBold(text) {
   var parts = text.split("**");
@@ -345,7 +345,7 @@ function DynamicBundleCard(props) {
           <div style={{ fontSize: 26, fontWeight: 900, color: "#1A1A1A" }}>{"\u20AC" + bundle.totalPrice}</div>
         </div>
         <button onClick={function() { onAddToCart(bundle.items); }}
-          style={{ background: "#1A1A1A", color: "#FFFFFF", padding: "10px 20px", borderRadius: 10, fontWeight: 700, fontSize: 13, border: "none", cursor: "pointer", fontFamily: "inherit" }}>
+          style={{ background: "#002468", color: "#FFFFFF", padding: "10px 20px", borderRadius: 10, fontWeight: 700, fontSize: 13, border: "none", cursor: "pointer", fontFamily: "inherit" }}>
           Add Set to Cart
         </button>
       </div>
@@ -367,9 +367,9 @@ function ProductCard(props) {
       </div>
       <div style={{ flex: 1, padding: "8px 10px" }}>
         <div style={{ fontSize: 12, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.3, marginBottom: 3 }}>{p.name}</div>
-        <div style={{ fontSize: 14, fontWeight: 800, color: "#CC0000" }}>{"\u20AC" + p.price}</div>
+        <div style={{ fontSize: 14, fontWeight: 800, color: "#002468" }}>{"\u20AC" + p.price}</div>
       </div>
-      <button onClick={props.onAdd} style={{ background: "#1A1A1A", color: "#FFFFFF", border: "none", padding: "0 14px", fontSize: 20, fontWeight: 300, cursor: "pointer", fontFamily: "inherit", alignSelf: "stretch", display: "flex", alignItems: "center" }}>+</button>
+      <button onClick={props.onAdd} style={{ background: "#002468", color: "#FFFFFF", border: "none", padding: "0 14px", fontSize: 20, fontWeight: 300, cursor: "pointer", fontFamily: "inherit", alignSelf: "stretch", display: "flex", alignItems: "center" }}>+</button>
     </div>
   );
 }
@@ -648,7 +648,7 @@ function BundDepo() {
     }
   }
 
-  var RED = "#CC0000";
+  var RED = "#002468";
   var BG = "#FFFFFF";
   var SURF = "#F5F5F5";
   var BORDER = "#E0E0E0";
@@ -662,7 +662,7 @@ function BundDepo() {
       {/* HEADER */}
       <div style={{ background: BG, borderBottom: "2px solid " + RED, flexShrink: 0 }}>
         <div style={{ padding: "10px 20px", display: "flex", alignItems: "center", gap: 16, justifyContent: "space-between" }}>
-          <div style={{ background: RED, color: BG, fontWeight: 900, fontSize: 22, padding: "4px 12px", letterSpacing: 2 }}>DEPO</div>
+          <div style={{ background: RED, color: BG, fontWeight: 900, fontSize: 22, padding: "4px 12px", letterSpacing: 2 }}>Senukai</div>
               <div style={{ background: "#FFF3CD", color: "#856404", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, border: "1px solid #ffc107", letterSpacing: 1 }}>DEMO</div>
           <div style={{ flex: 1, maxWidth: 500, display: "flex" }}>
             <input placeholder="Search by name or barcode..." style={{ flex: 1, border: "1px solid " + BORDER, borderRight: "none", borderRadius: "4px 0 0 4px", padding: "8px 14px", fontSize: 13, outline: "none" }} />
@@ -685,7 +685,7 @@ function BundDepo() {
           </div>
         </div>
         <div style={{ padding: "6px 20px", background: "#F8F8F8", borderTop: "1px solid " + BORDER, fontSize: 13, color: MUTED }}>
-          &#128205; Veskiposti 1, Tallinn, Estonia &nbsp; <span style={{ color: RED, cursor: "pointer" }}>Change store</span>
+          &#128205; Islandijos pl. 32B, Kaunas &nbsp; <span style={{ color: RED, cursor: "pointer" }}>Change store</span>
         </div>
       </div>
 
@@ -734,7 +734,7 @@ function BundDepo() {
                   return (
                     <div key={i} style={{ background: SURF, border: "1px solid " + BORDER, borderRadius: 14, padding: 14 }}>
                       <div style={{ fontWeight: 700, fontSize: 15, color: TEXT, marginBottom: 8 }}>Welcome to BUND AI Assistant!</div>
-                      <div style={{ fontSize: 13, color: MUTED, marginBottom: 12, lineHeight: 1.6 }}>I am your AI shopping guide for DEPO. Describe your project and I will find the right products instantly.</div>
+                      <div style={{ fontSize: 13, color: MUTED, marginBottom: 12, lineHeight: 1.6 }}>I am your AI shopping guide for Senukai. Describe your project and I will find the right products instantly.</div>
                       {[
                         ["&#127968;", "Describe a project", "25m2 living room renovation"],
                         ["&#128269;", "Search by style", "Scandinavian living room, warm tones"],
